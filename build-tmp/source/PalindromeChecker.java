@@ -33,7 +33,50 @@ public void setup()
 public boolean palindrome(String word)
 {
   //your code here
-  return false;
+  //print(word+": ");
+  word = word.toLowerCase();
+  for(int i = 0;i<word.length();i++)
+  {
+  	if(word.charAt(i)==' ')
+  	{
+  		word = word.substring(0,i) + word.substring(i+1);
+  		i--;
+  	}
+  	else if(word.substring(i,i+1).equals(","))
+  	{
+  		word = word.substring(0,i) + word.substring(i+1);
+  		i--;
+  	}
+  	else if(word.charAt(i)=='!')
+  	{
+  		word = word.substring(0,i) + word.substring(i+1);
+  		i--;
+  	}
+  	else if(word.charAt(i)=='.')
+  	{
+  		word = word.substring(0,i) + word.substring(i+1);
+  		i--;
+  	}
+  	else if(word.substring(i,i+1).equals("'"))
+  	{
+  		word = word.substring(0,i) + word.substring(i+1);
+  		i--;
+  	}
+  }
+  //println(word);
+  String test = "";
+  for(int i = word.length()-1;i>=0;i--)
+  {
+  	test = test + word.substring(i,i+1);
+  }
+  if(test.equals(word))
+  {
+  	return true;
+  }
+  else
+  {
+  	return false;
+  }
 }
 
   static public void main(String[] passedArgs) {
